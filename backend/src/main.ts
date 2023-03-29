@@ -15,14 +15,10 @@ async function main() {
   logger.debug('Dependency container succesfully instantiated');
 
   let config: Config = require('../config/config.json');
-
   const githubClient: GithubClient = new GithubClient(config);
 
-  const user: User = await githubClient.getUser("twpayne");
-  const repos: Repo[] = await githubClient.getUserRepos("twpayne");
-  const pullRequests: PullRequest[] = await githubClient.getRepoPullRequests("twpayne", "chezmoi");
-
   dependencyContainer.register<winston.Logger>('logger', asValue(logger));
+  dependencyContainer.register<GithubClient>('githubClient', asValue(githubClient));
   await expressServerFactory(dependencyContainer.cradle);
 
   console.timeEnd('BOOT');
