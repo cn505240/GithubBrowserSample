@@ -7,7 +7,7 @@ class GithubClient {
         this.host = config.githubApiUrl;
     }
 
-    public async getUser(username: string): Promise<Account[]> {
+    public async getUser(username: string): Promise<User> {
         const response = await axios.get(`${this.host}/users/${username}`);
         return response.data;
     }
@@ -22,3 +22,5 @@ class GithubClient {
         return response.data;
     }
 }
+
+export default GithubClient;

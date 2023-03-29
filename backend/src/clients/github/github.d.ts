@@ -1,13 +1,14 @@
-interface Account {
+interface User {
     login: string;
-    id: number;
-    avatar_url: string;
+    name: string;
 }
 
 interface Repo {
-    id: number;
+    name: string;
 }
 
 interface PullRequest {
-    id: number;
+    number: number;
+    title: string;
+    created_at: Date;
 }
