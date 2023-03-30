@@ -12,26 +12,30 @@ Lastly, the system should be thoroughly tested up and down the stack. Backend te
 ## To Do List
 
 ### Backend
-- [] Node.js + Typescript + Express.js REST API (boilerplate)
-- [] Github API client
+- [x] Node.js + Typescript + Express.js REST API (boilerplate)
+- [x] Github API client
 - [] Github API client tests
-- [] Heartbeat endpoint
+- [x] Heartbeat endpoint
 - [] Heartbeat endpoint integration tests
-- [] List accounts endpoint
+- [x] List accounts endpoint
 - [] List accounts endpoint integration tests
-- [] List account repositories endpoint
+- [x] List account repositories endpoint
 - [] List account repositories endpoint integration tests
-- [] List open repo PRs endpoint
-- [] List opn repo PRs endpoint integration tests
+- [x] List open repo PRs endpoint
+- [] List open repo PRs endpoint integration tests
+- [] Thorough error handling at Github client level
+- [] Thorough error handling at the API level
 
 ### Frontend
-- [] React + Typescript app (boilerplate - Create React App)
-- [] Github Browser container component - provides main SPA container, manage calls to backend, pass relevant data to child components
+- [x] React + Typescript app (boilerplate - Create React App)
+- [x] Github Browser container component - provides main SPA container, manage calls to backend, pass relevant data to child components
 - Jest tests for the above
-- [] Accounts list component - display retrieved accounts, support click interactions by calling prop-passed callbacks
+- [x] Accounts list component - display retrieved accounts, support click interactions by calling prop-passed callbacks
 - Jest tests for the above
-- [] Repo list component - display retrieved repositories, support click interactions by calling prop-passed callbacks
+- [x] Repo list component - display retrieved repositories, support click interactions by calling prop-passed callbacks
 - Jest tests for the above
-- [] PR list component - display retrieved PRs, colour code by age
+- [x] PR list component - display retrieved PRs, colour code by age
 - Jest tests for the above
-- [] Bonus points 4 equal sized elements
+- [x] Bonus points 4 equal sized elements
+- [] Error handling on API responses
+
