@@ -1,4 +1,3 @@
 {
-    "githubApiUrl": "https://api.github.com",
-    "users": ["twpayne", "asim", "pepelsbey"]
+    "githubApiUrl": "https://api.github.com"
 }

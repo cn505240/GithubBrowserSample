@@ -19,6 +19,9 @@ class GithubController {
 
   @Autobind
   public async getUser(req: Request, res: Response) {
+    res.header("Access-Control-Allow-Origin", "http://localhost:8080");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
     const { username } = req.params;
     const userRes: User = await this.githubClient.getUser(username);
 
