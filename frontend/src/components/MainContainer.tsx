@@ -26,8 +26,6 @@ function MainContainer() {
     })
 
     Promise.all(userResponses).then((users: UserResponse[]) => {
-      console.log(users);
-
       setUsers(users.map((userResponse: UserResponse) => userResponse.user));
     });
   }, [setUsers]);
@@ -46,13 +44,10 @@ function MainContainer() {
 
   useEffect(() => {
     if (selectedRepo && selectedUser) {
-      console.log('gonna set pull requests');
       const pullRequestsResponse = getRepoPulls(selectedUser.login, selectedRepo.name);
 
       pullRequestsResponse.then((pullRequestsResponse: PullRequestsResponse) => {
-        console.log('setting');
         setPullRequests(pullRequestsResponse.pullRequests);
-        console.log(pullRequests);
       });
     } else {
       setPullRequests([])
