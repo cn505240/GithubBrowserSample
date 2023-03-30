@@ -8,9 +8,9 @@ import BonusElements from './BonusElements';
 function MainContainer() {
   return (
     <div className="MainContainer">
-      <div>
+      <div className="MainContainer-columns">
         <Accounts/>
-        <div>
+        <div className="MainContainer-repos-and-prs">
           <Repos/>
           <PullRequests/>
         </div>

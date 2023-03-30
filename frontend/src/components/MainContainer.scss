@@ -1,0 +1,28 @@
+.MainContainer {
+    width: 70vw;
+    height: 70vh;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    & > * {
+        border-radius: 4px;
+    }
+}
+
+.MainContainer-columns {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.MainContainer-repos-and-prs {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}

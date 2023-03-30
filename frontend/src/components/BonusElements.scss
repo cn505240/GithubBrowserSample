@@ -1,0 +1,14 @@
+.BonusElements {
+    height: 25%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+
+    & > div {
+      height: 100%;
+      flex-grow: 1;
+      border-radius: 1rem;
+      border: 1px black solid;
+    }
+}

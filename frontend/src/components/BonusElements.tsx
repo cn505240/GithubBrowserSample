@@ -4,6 +4,10 @@ import './BonusElements.scss';
 function BonusElements() {
   return (
     <div className="BonusElements">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   );
 }
