@@ -4,6 +4,7 @@ import './Accounts.scss';
 
 interface AccountsProps {
   users: User[]
+  setSelectedUser: (user: User) => void
 }
 
 function Accounts(props: AccountsProps) {
@@ -11,7 +12,7 @@ function Accounts(props: AccountsProps) {
     <div className="Accounts">
       <ul>
         {props.users.map((user) => (
-          <li>
+          <li key={user.login} className="Accounts-user" onClick={() => props.setSelectedUser(user)}>
             <span>{user.login}</span>
             <span>{user.name}</span>
           </li>

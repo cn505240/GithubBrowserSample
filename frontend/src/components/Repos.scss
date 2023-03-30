@@ -1,6 +1,13 @@
 .Repos {
     width: 100%;
+    max-height: 50%;
     flex-grow: 1;
+    overflow-y: auto;
     border: 1px black solid;
     border-radius: 1rem;
+}
+
+.Repos-repo {
+    cursor: pointer;
+    margin-bottom: 0.5rem;
 }

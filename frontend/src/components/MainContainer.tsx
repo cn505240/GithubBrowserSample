@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import './MainContainer.scss';
 import Accounts from './Accounts';
 import Repos from './Repos';
 import PullRequests from './PullRequests';
 import BonusElements from './BonusElements';
-import { User, PullRequest, Repo } from '../clients/github/types';
-import { getUser } from '../clients/github/github';
+import { User, UserResponse, PullRequest, Repo, ReposResponse, PullRequestsResponse } from '../clients/github/types';
+import { getRepoPulls, getUser, getUserRepos } from '../clients/github/github';
 
 const USERNAMES: string[] = [
   "twpayne", 
@@ -21,24 +21,51 @@ function MainContainer() {
   const [pullRequests, setPullRequests] = useState<PullRequest[]>([]);
 
   useEffect(() => {
-    console.log('hook');
-    const users: Promise<User>[] = USERNAMES.map((username: string) => {
-      console.log('getting user', username);
+    const userResponses: Promise<UserResponse>[] = USERNAMES.map((username: string) => {
       return getUser(username);
     })
 
-    Promise.all(users).then((users: User[]) => {
-       setUsers(users)
+    Promise.all(userResponses).then((users: UserResponse[]) => {
+      console.log(users);
+
+      setUsers(users.map((userResponse: UserResponse) => userResponse.user));
     });
   }, [setUsers]);
+
+  useEffect(() => {
+    if (selectedUser) {
+      const reposResponse = getUserRepos(selectedUser.login);
+
+      reposResponse.then((reposResponse: ReposResponse) => {
+        setRepos(reposResponse.repos);
+      });
+    } else {
+      setRepos([])
+    }
+  }, [selectedUser, setRepos]);
+
+  useEffect(() => {
+    if (selectedRepo && selectedUser) {
+      console.log('gonna set pull requests');
+      const pullRequestsResponse = getRepoPulls(selectedUser.login, selectedRepo.name);
+
+      pullRequestsResponse.then((pullRequestsResponse: PullRequestsResponse) => {
+        console.log('setting');
+        setPullRequests(pullRequestsResponse.pullRequests);
+        console.log(pullRequests);
+      });
+    } else {
+      setPullRequests([])
+    }
+  }, [selectedRepo, selectedUser, setPullRequests]);
 
   return (
     <div className="MainContainer">
       <div className="MainContainer-columns">
-        <Accounts users={users}/>
+        <Accounts users={users} setSelectedUser={setSelectedUser}/>
         <div className="MainContainer-repos-and-prs">
-          <Repos/>
-          <PullRequests/>
+          <Repos repos={repos} setSelectedRepo={setSelectedRepo}/>
+          <PullRequests pullRequests={pullRequests}/>
         </div>
       </div>
       <BonusElements/>

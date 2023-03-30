@@ -34,6 +34,9 @@ class GithubController {
 
   @Autobind
   public async getUserRepos(req: Request, res: Response) {
+    res.header("Access-Control-Allow-Origin", "http://localhost:8080");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
     const { username } = req.params;
     const reposRes: Repo[] = await this.githubClient.getUserRepos(username);
 
@@ -47,6 +50,9 @@ class GithubController {
 
   @Autobind
   public async getRepoPullRequests(req: Request, res: Response) {
+    res.header("Access-Control-Allow-Origin", "http://localhost:8080");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
     const { username, repo } = req.params;
     const pullRequestsRes: PullRequest[] = await this.githubClient.getRepoPullRequests(username, repo);
 
@@ -54,7 +60,7 @@ class GithubController {
       return {
         number: pullRequest.number,
         title: pullRequest.title,
-        created_at: pullRequest.created_at
+        created_at: new Date(pullRequest.created_at)
       }
     });
     return res.json({ pullRequests });
