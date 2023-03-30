@@ -8,9 +8,9 @@ import { User, UserResponse, PullRequest, Repo, ReposResponse, PullRequestsRespo
 import { getRepoPulls, getUser, getUserRepos } from '../clients/github/github';
 
 const USERNAMES: string[] = [
-  "twpayne", 
-  "asim",
-  "pepelsbey"
+  "twpayne",
+  "Yidadaa",
+  "binary-husky"
 ]
 
 function MainContainer() {

@@ -13,8 +13,7 @@ function Accounts(props: AccountsProps) {
       <ul>
         {props.users.map((user) => (
           <li key={user.login} className="Accounts-user" onClick={() => props.setSelectedUser(user)}>
-            <span>{user.login}</span>
-            <span>{user.name}</span>
+            <span>{user.login} - {user.name}</span>
           </li>
         )
         )}

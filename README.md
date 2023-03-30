@@ -1,5 +1,5 @@
 # GithubBrowserSample
-Sample application to view Github repositories and their PRs
+Sample application to view Github repositories and their PRs. Note that the public Github API is quick to rate limit. Some good repos to test with are `twpayne` -> `chezmoi`, `binary-husky` -> `chatgpt_academic`, and `Yidadaa` -> `ChatGPT-Next-Web`
 
 ## Approach
 

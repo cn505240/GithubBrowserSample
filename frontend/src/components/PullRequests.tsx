@@ -15,9 +15,10 @@ function PullRequests(props: PullRequestsProps) {
     const twoDaysAgo: Date = new Date();
     twoDaysAgo.setDate(twoDaysAgo.getDate() - 2);
     
-    if (pullRequest.created_at < fiveDaysAgo) {
+    const createdAt: Date = new Date(pullRequest.created_at);
+    if (createdAt < fiveDaysAgo) {
       return "PullRequests-red";
-    } else if (pullRequest.created_at < twoDaysAgo) {
+    } else if (createdAt < twoDaysAgo) {
       return "PullRequests-yellow";
     }
 

@@ -1,6 +1,7 @@
 .PullRequests {
     width: 100%;
     max-height: 45%;
+    overflow-y: auto;
     flex-grow: 1;
     border: 1px black solid;
     border-radius: 1rem;
